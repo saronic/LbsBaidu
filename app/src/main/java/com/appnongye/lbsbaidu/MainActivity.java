@@ -1,5 +1,6 @@
 package com.appnongye.lbsbaidu;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -18,7 +19,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     private Button startLocation;
-    private Button stopLocation;
+    private Button stopLocation, mShowMapBtn;
     private TextView baiduDesc;
     private LocationClient locationClient;
     private BDLocationListener listener = new MyLocationListener();
@@ -29,9 +30,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         startLocation = (Button) findViewById(R.id.start_Location);
         stopLocation = (Button) findViewById(R.id.stop_Location);
+        mShowMapBtn = (Button) findViewById(R.id.show_map_btn);
         baiduDesc = (TextView) findViewById(R.id.baidu_Desc);
         startLocation.setOnClickListener(this);
         stopLocation.setOnClickListener(this);
+        mShowMapBtn.setOnClickListener(this);
 
         initBaiduLBSConfig();
         initLocation();
@@ -65,6 +68,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.stop_Location:
                 locationClient.stop();
+                break;
+            case R.id.show_map_btn:
+                Intent intent = new Intent(this, ShowMapActivity.class);
+                startActivity(intent);
                 break;
         }
     }

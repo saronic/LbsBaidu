@@ -13,6 +13,11 @@
         android:text="停止百度定位"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
+    <Button
+        android:id="@+id/show_map_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ShowMap"/>
     <TextView
         android:id="@+id/baidu_Desc"
         android:layout_width="match_parent"
